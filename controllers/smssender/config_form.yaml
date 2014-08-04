@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: SmsSender
+
+# Model Form Field configuration
+form: @/plugins/tiipiik/smssender/models/smssender/fields.yaml
+
+# Model Class name
+modelClass: Tiipiik\SmsSender\Models\SmsSender
+
+# Default redirect location
+defaultRedirect: tiipiik/smssender/smssender
+
+# Create page
+create:
+    title: Create SmsSender
+    redirect: tiipiik/smssender/smssender/update/:id
+    redirectClose: tiipiik/smssender/smssender
+
+# Update page
+update:
+    title: Edit SmsSender
+    redirect: tiipiik/smssender/smssender
+    redirectClose: tiipiik/smssender/smssender
+
+# Preview page
+preview:
+    title: Preview SmsSender

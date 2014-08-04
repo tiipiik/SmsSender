@@ -1,0 +1,42 @@
+fields:
+    from:
+        label: From
+        commentAbove: Specify the name for the "from" field of the message
+        
+    #default_message:
+    #    label: Default message
+    #    type: textarea
+    #    placeholder: Default message
+    #    commentAbove: Default message to send to users, use any var like this %var%
+
+tabs:
+    fields:
+    
+        clickatell_user_name:
+            tab: Clickatell
+            label: Username
+            commentAbove: The username you use for your Clickatell account
+            placeholder: Your Clickatell username
+            span: left
+            
+        clickatell_passwd:
+            tab: Clickatell
+            label: Password
+            commentAbove: The password you use for your Clickatell account
+            placeholder: Your Clickatell password
+            span: right
+            
+        clickatell_api_id:
+            tab: Clickatell
+            label: API Id
+            commentAbove: API Id provided by Clickatell
+            placeholder: Your Clickatell Api Id
+            span: left
+            
+        clickatell_base_url:
+            tab: Clickatell
+            label: API URL
+            default: http://api.clickatell.com
+            commentAbove: Modify this URL only if youknow what you're doing
+            placeholder: Your Clickatell Api URL
+            span: right

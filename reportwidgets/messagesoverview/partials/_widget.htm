@@ -1,0 +1,35 @@
+<div class="report-widget">
+    <h3><?= e($this->property('title')) ?></h3>
+
+    <?php if (!isset($error)): ?>
+        <?php
+            if (sizeof($rows) == 0 )
+                echo 'No messages were send for now';
+            else {
+                echo '
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2">From</div>
+            <div class="col-xs-2">To</div>
+            <div class="col-xs-5">Message</div>
+            <div class="col-xs-3">Status</div>
+        </div>';
+            foreach ($rows as $row) {
+                $cssStatus = ($row['status'] == 'ERR: 001, Authentication failed' || $row['status'] == 'Failed' ?'danger' : 'success');
+                echo '
+            <div class="row">
+                <div class="col-xs-2">'.$row['from'].'</div>
+                <div class="col-xs-2">'.$row['to'].'</div>
+                <div class="col-xs-5">'.$row['message'].'</div>
+                <div class="col-xs-3"><span class="text-'.$cssStatus.'">'.$row['status'].'</span></div>
+            </div>';
+                }
+                echo '
+    </div>';
+            }
+    ?>
+    <?php else: ?>
+        <p class="flash-message static warning"><?= e($error) ?></p>
+    <?php endif ?>
+
+</div>
