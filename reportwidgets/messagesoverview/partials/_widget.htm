@@ -15,13 +15,20 @@
             <div class="col-xs-3">Status</div>
         </div>';
             foreach ($rows as $row) {
-                $cssStatus = ($row['status'] == 'ERR: 001, Authentication failed' || $row['status'] == 'Failed' ?'danger' : 'success');
+                $cssStatus = ($row['short_status'] == 1 ? 'success' : 'danger');
                 echo '
             <div class="row">
                 <div class="col-xs-2">'.$row['from'].'</div>
                 <div class="col-xs-2">'.$row['to'].'</div>
                 <div class="col-xs-5">'.$row['message'].'</div>
-                <div class="col-xs-3"><span class="text-'.$cssStatus.'">'.$row['status'].'</span></div>
+                <div class="col-xs-3"><span class="text-'.$cssStatus.'">';
+                if ($row['short_status'] == 1)
+                    echo 'Sent';
+                else if ($row['short_status'] == 2)
+                    echo 'Failed';
+                else if ($row['short_status'] == 3)
+                    echo 'Gateway authentication failure';
+                echo '</span></div>
             </div>';
                 }
                 echo '

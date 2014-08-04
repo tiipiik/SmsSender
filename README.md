@@ -19,6 +19,9 @@ You can add a dashbord widget to get informations about status of messages.
 * Number of days to display dtaa for : 0 for the current day, 1 for current day and yesterday, etc.
 * Display only failed messages : display only failed messages or all messages
 
+### Need more gateways ?
+If you need or already use other gateways, let me know and I'll add it to the plugin.
+
 ### Like this plugin?
 If you like this plugin or if you use some of my plugins, you can help me to make new plugins and provide plugins support and further development. Make donation with PayPal or give this plugin a Like. :)
 

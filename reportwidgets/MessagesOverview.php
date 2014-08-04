@@ -65,7 +65,7 @@ class MessagesOverview extends ReportWidgetBase
                 'from'=>$message->from,
                 'to'=>$message->to,
                 'message'=>$message->message,
-                'status'=>$message->status,
+                'short_status'=>$message->short_status,
             ];
         }
         $this->vars['rows'] = $mList;

@@ -20,6 +20,7 @@ class MessageHistory extends Model
         $message->to = $messageDatas['to'];
         $message->message = $messageDatas['message'];
         $message->status = $messageDatas['status'];
+        $message->short_status = $messageDatas['short_status'];
         $message->sess_id = $messageDatas['sess_id'];
         $message->save();
     }

@@ -34,7 +34,6 @@ class Sender
         $sessId = '';
         $codeStatus = '';
         
-        
         $text = urlencode($message);
         
         // auth call
@@ -45,6 +44,10 @@ class Sender
      
         // explode our response. return string is on first line of the data returned
         $sess = explode(":",$ret[0]);
+        echo '<pre>';
+            var_dump($sess);
+        echo '</pre>';
+        
         if ($sess[0] == 'OK') {
             $sessId = trim($sess[1]); // remove any whitespace
             $url = $baseUrl.'/http/sendmsg?session_id='.$sessId.'&to='.$to.'&text='.$text;
@@ -56,8 +59,9 @@ class Sender
             if ($send[0] == "ID") {
                 // Everything's cool, message sent
                 //echo "<br>SuccessnMessage ID: ". $send[1];
-                $sessId = $send[1];
                 $codeStatus = 1;
+                $status = 'Sent';
+                $sessId = $send[1];
                 
             } else {
                 //echo "<br>Send message failed";
@@ -68,8 +72,8 @@ class Sender
         } else {
            // echo "<br>Authentication failure: ". $ret[0];
            // Authentication failure, got to check Api Id, user credentials and co.
-            $status = $ret[0];
             $codeStatus = 3;
+            $status = $ret[0];
         }
         // Store datas in table
         $messageDatas = [
@@ -77,11 +81,12 @@ class Sender
             'to' => $to,
             'sess_id' => $sessId,
             'message' => $message,
-            'status' => $send[1],
-            'short_status' => 1,
+            'status' => $status,
+            'short_status' => (int) $codeStatus,
         ];
         MessageHistory::saveHistory($messageDatas);
         
+        die('<br>Code : '.$codeStatus);
         echo '<hr>';
         /*
         if (isset($sess))
