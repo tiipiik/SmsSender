@@ -19,87 +19,79 @@ class Sender
      */    
     public static function sendMessage($to, $message)
     {
-        /*
-            Needs to know witch provider is used (maybe by searching non-empty datas
-            or - better - Store current_provider in table on create/update
-        */
-        
         /* Find settings for provider datas */
+        $gateway = Setting::get('gateway');
         $from = Setting::get('from'); // Need to change that name 
-        $providerUsername = Setting::get('clickatell_user_name');
-        $providerPasswd = Setting::get('clickatell_passwd');
-        $providerApiId = Setting::get('clickatell_api_id');
-        $baseUrl = Setting::get('clickatell_base_url');
         
-        $sessId = '';
-        $codeStatus = '';
-        
-        $text = urlencode($message);
-        
-        // auth call
-        $url = $baseUrl.'/http/auth?user='.$providerUsername.'&password='.$providerPasswd.'&api_id='.$providerApiId;
-        
-        // do auth call
-        $ret = file($url);
-     
-        // explode our response. return string is on first line of the data returned
-        $sess = explode(":",$ret[0]);
-        echo '<pre>';
-            var_dump($sess);
-        echo '</pre>';
-        
-        if ($sess[0] == 'OK') {
-            $sessId = trim($sess[1]); // remove any whitespace
-            $url = $baseUrl.'/http/sendmsg?session_id='.$sessId.'&to='.$to.'&text='.$text;
-    
-            // do sendmsg call
+        if ($gateway == 'clickatell')
+        {
+            $providerUsername = Setting::get('clickatell_user_name');
+            $providerPasswd = Setting::get('clickatell_passwd');
+            $providerApiId = Setting::get('clickatell_api_id');
+            $baseUrl = Setting::get('clickatell_base_url');
+            $sessId = '';
+            $codeStatus = '';
+            $text = urlencode($message);
+            
+            // auth call
+            $url = $baseUrl.'/http/auth?user='.$providerUsername.'&password='.$providerPasswd.'&api_id='.$providerApiId;
+            
+            // do auth call
             $ret = file($url);
-            $send = explode(":",$ret[0]);
-    
-            if ($send[0] == "ID") {
-                // Everything's cool, message sent
-                //echo "<br>SuccessnMessage ID: ". $send[1];
-                $codeStatus = 1;
-                $status = 'Sent';
-                $sessId = $send[1];
-                
-            } else {
-                //echo "<br>Send message failed";
-                // Hum, sending failed
-                $codeStatus = 2;
-                $status = 'Failed';
-            }
-        } else {
-           // echo "<br>Authentication failure: ". $ret[0];
-           // Authentication failure, got to check Api Id, user credentials and co.
-            $codeStatus = 3;
-            $status = $ret[0];
-        }
-        // Store datas in table
-        $messageDatas = [
-            'from' => $from,
-            'to' => $to,
-            'sess_id' => $sessId,
-            'message' => $message,
-            'status' => $status,
-            'short_status' => (int) $codeStatus,
-        ];
-        MessageHistory::saveHistory($messageDatas);
+         
+            // explode our response. return string is on first line of the data returned
+            $sess = explode(":",$ret[0]);
+            echo '<pre>';
+                var_dump($sess);
+            echo '</pre>';
+            
+            if ($sess[0] == 'OK') {
+                $sessId = trim($sess[1]); // remove any whitespace
+                $url = $baseUrl.'/http/sendmsg?session_id='.$sessId.'&to='.$to.'&text='.$text;
         
-        die('<br>Code : '.$codeStatus);
-        echo '<hr>';
-        /*
-        if (isset($sess))
-            echo 'Session : <pre>'.var_dump($sess).'</pre><hr>';
-        if (isset($ret))
-            echo 'Return : <pre>'.var_dump($ret).'</pre><hr>';
-        echo '<br>Done.';
-        */
-        die;
-        if ($sodeStatus == 1)
-            return true;
-        else
-            return false;
+                // do sendmsg call
+                $ret = file($url);
+                $send = explode(":",$ret[0]);
+        
+                if ($send[0] == "ID") {
+                    //echo "<br>SuccessnMessage ID: ". $send[1];
+                    $codeStatus = 1;
+                    $status = 'Sent';
+                    $sessId = $send[1];
+                    
+                } else {
+                    // Hum, sending failed
+                    $codeStatus = 2;
+                    $status = 'Failed';
+                }
+            } else {
+               // Authentication failure, got to check Api Id, user credentials and co.
+                $codeStatus = 3;
+                $status = $ret[0];
+            }
+            // Store datas in table
+            $messageDatas = [
+                'from' => $from,
+                'to' => $to,
+                'sess_id' => $sessId,
+                'message' => $message,
+                'status' => $status,
+                'short_status' => (int) $codeStatus,
+            ];
+            MessageHistory::saveHistory($messageDatas);
+            
+            echo '<hr>';
+            /*
+            if (isset($sess))
+                echo 'Session : <pre>'.var_dump($sess).'</pre><hr>';
+            if (isset($ret))
+                echo 'Return : <pre>'.var_dump($ret).'</pre><hr>';
+            echo '<br>Done.';
+            */
+        
+            die('<br>Code : '.$codeStatus);
+        }
+        ($codeStatus == 1 ? true : false);
     }
     
     /*

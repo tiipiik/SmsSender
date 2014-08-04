@@ -2,6 +2,14 @@ fields:
     from:
         label: From
         commentAbove: Specify the name for the "from" field of the message
+    
+    gateway:
+        label: Gateways
+        commentAbove: Select the gateway your using
+        type: dropdown
+        options:
+            '': Select your gateway
+            clickatell: Clickatell
         
     #default_message:
     #    label: Default message
@@ -11,7 +19,7 @@ fields:
 
 tabs:
     fields:
-    
+            
         clickatell_user_name:
             tab: Clickatell
             label: Username
