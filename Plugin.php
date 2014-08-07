@@ -12,7 +12,7 @@ class Plugin extends PluginBase
     {
         return [
             'name'        => 'SmsSender',
-            'description' => 'Send SMS to your users, througth various providers.',
+            'description' => 'Send SMS to your users, through various providers.',
             'author'      => 'Tiipiik',
             'icon'        => 'icon-envelope-square'
         ];
@@ -34,7 +34,7 @@ class Plugin extends PluginBase
             'smssender' => [
                 'label' => 'SMS Sender',
                 'icon' => 'icon-envelope-square',
-                'description' => 'Send SMS to your users, througth various providers.',
+                'description' => 'Send SMS to your users, through various providers.',
                 'class' => 'Tiipiik\SmsSender\Models\Setting',
                 'order' => 100
             ]

@@ -7,8 +7,8 @@ fields:
         label: Gateways
         commentAbove: Select the gateway your using
         type: dropdown
+        placeholder: -- Select your gateway --
         options:
-            '': Select your gateway
             clickatell: Clickatell
         
     #default_message:
