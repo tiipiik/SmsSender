@@ -42,6 +42,12 @@ class MessagesOverview extends ReportWidgetBase
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$'
             ],
+            'rows' => [
+                'title'             => 'Number of rows to display',
+                'default'           => '10',
+                'type'              => 'string',
+                'validationPattern' => '^[0-9]+$'
+            ],
             'failed_only' => [
                 'title'             => 'Display only failed messages',
                 'type'              => 'checkbox',
@@ -53,11 +59,12 @@ class MessagesOverview extends ReportWidgetBase
     protected function loadData()
     {
         $days = $this->property('days');
+        $rows = $this->property('rows');
         $status = $this->property('failed_only');
         
         $mList = [];
         
-        $messages = Sender::getMessages($days, $status);
+        $messages = Sender::getMessages($days, $rows, $status);
         
         foreach ($messages as $message)
         {

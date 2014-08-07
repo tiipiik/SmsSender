@@ -100,7 +100,7 @@ class Sender
      * return array messages
      *
      */
-    public static function getMessages($days, $status)
+    public static function getMessages($days, $rows, $status)
     {
         // Convert days to correct date formatting
         $fromDays = date("Y-m-d 00:00:01", time() - (1 * ($days * 24) * 60 * 60));
@@ -109,6 +109,7 @@ class Sender
         if ($status != 0)
             $messages = $messages->where('short_status', '!=', $status);
         $messages = $messages->orderBy('created_at', 'desc')
+            ->take($rows)
             ->get();
         
         return $messages;
