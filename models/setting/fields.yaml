@@ -1,50 +1,45 @@
 fields:
     from:
-        label: From
-        commentAbove: Specify the name for the "from" field of the message
+        label: tiipiik.smssender::lang.backend.from_label
+        placeholder: tiipiik.smssender::lang.backend.from_ph
+        commentAbove: tiipiik.smssender::lang.backend.from_comment
     
     gateway:
-        label: Gateways
-        commentAbove: Select the gateway your using
+        label: tiipiik.smssender::lang.backend.gateways_label
+        commentAbove: tiipiik.smssender::lang.backend.gateways_comment
         type: dropdown
-        placeholder: -- Select your gateway --
+        placeholder: tiipiik.smssender::lang.backend.gateways_ph
         options:
             clickatell: Clickatell
-        
-    #default_message:
-    #    label: Default message
-    #    type: textarea
-    #    placeholder: Default message
-    #    commentAbove: Default message to send to users, use any var like this %var%
 
 tabs:
     fields:
             
         clickatell_user_name:
-            tab: Clickatell
-            label: Username
-            commentAbove: The username you use for your Clickatell account
-            placeholder: Your Clickatell username
+            tab: tiipiik.smssender::lang.backend.clickatell_tab
+            label: tiipiik.smssender::lang.backend.clickatell_username
+            placeholder: tiipiik.smssender::lang.backend.clickatell_username_ph
+            commentAbove: tiipiik.smssender::lang.backend.clickatell_username_comment
             span: left
             
         clickatell_passwd:
-            tab: Clickatell
-            label: Password
-            commentAbove: The password you use for your Clickatell account
-            placeholder: Your Clickatell password
+            tab: tiipiik.smssender::lang.backend.clickatell_tab
+            label: tiipiik.smssender::lang.backend.clickatell_passwd
+            placeholder: tiipiik.smssender::lang.backend.clickatell_passwd_ph
+            commentAbove: tiipiik.smssender::lang.backend.clickatell_passwd_comment
             span: right
             
         clickatell_api_id:
-            tab: Clickatell
-            label: API Id
-            commentAbove: API Id provided by Clickatell
-            placeholder: Your Clickatell Api Id
+            tab: tiipiik.smssender::lang.backend.clickatell_tab
+            label: tiipiik.smssender::lang.backend.clickatell_api_id
+            placeholder: tiipiik.smssender::lang.backend.clickatell_api_id_ph
+            commentAbove: tiipiik.smssender::lang.backend.clickatell_api_id_comment
             span: left
             
         clickatell_base_url:
-            tab: Clickatell
-            label: API URL
+            tab: tiipiik.smssender::lang.backend.clickatell_tab
+            label: tiipiik.smssender::lang.backend.clickatell_api_url
+            placeholder: tiipiik.smssender::lang.backend.clickatell_api_url_ph
             default: http://api.clickatell.com
-            commentAbove: Modify this URL only if youknow what you're doing
-            placeholder: Your Clickatell Api URL
+            commentAbove: tiipiik.smssender::lang.backend.clickatell_api_url_comment
             span: right
