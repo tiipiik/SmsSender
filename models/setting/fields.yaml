@@ -11,6 +11,7 @@ fields:
         placeholder: tiipiik.smssender::lang.backend.gateways_ph
         options:
             clickatell: Clickatell
+            twilio: Twilio
 
 tabs:
     fields:
@@ -42,4 +43,18 @@ tabs:
             placeholder: tiipiik.smssender::lang.backend.clickatell_api_url_ph
             default: http://api.clickatell.com
             commentAbove: tiipiik.smssender::lang.backend.clickatell_api_url_comment
+            span: right
+            
+        twilio_account_id:
+            tab: tiipiik.smssender::lang.backend.twilio_tab
+            label: tiipiik.smssender::lang.backend.twilio_account_id
+            placeholder: tiipiik.smssender::lang.backend.twilio_account_id_ph
+            commentAbove: tiipiik.smssender::lang.backend.twilio_account_id_comment
+            span: left
+            
+        twilio_token:
+            tab: tiipiik.smssender::lang.backend.twilio_tab
+            label: tiipiik.smssender::lang.backend.twilio_token
+            placeholder: tiipiik.smssender::lang.backend.twilio_token_ph
+            commentAbove: tiipiik.smssender::lang.backend.twilio_token_comment
             span: right

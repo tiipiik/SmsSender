@@ -26,5 +26,13 @@ return [
         'clickatell_api_url'=>'Url API',
         'clickatell_api_url_ph'=>'L\'url de l\'API Clickatell que vous utilisez',
         'clickatell_api_url_comment'=>'Ne modifiez cette url que si vous savez ce que vous faites',
+        
+        'twilio_account_id'=>'AccountSid',
+        'twilio_account_id_ph'=>'Votre Twilio AccountSid',
+        'twilio_account_id_comment'=>'AccountSid donné par Twilio (www.twilio.com/user/account)',
+        
+        'twilio_token'=>'AuthToken',
+        'twilio_token_ph'=>'Your Twilio AuthToken',
+        'twilio_token_comment'=>'AuthToken donné par Twilio (www.twilio.com/user/account)',
     ]
 ];

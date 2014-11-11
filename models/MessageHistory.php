@@ -12,9 +12,6 @@ class MessageHistory extends Model
     
     public static function saveHistory($messageDatas = array())
     {
-        echo '<pre>';
-            var_dump($messageDatas);
-
         $message = new MessageHistory();
         $message->from = $messageDatas['from'];
         $message->to = $messageDatas['to'];

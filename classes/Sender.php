@@ -1,5 +1,6 @@
 <?php namespace Tiipiik\SmsSender\Classes;
 
+use Services_Twilio;
 use Exception;
 use Tiipiik\SmsSender\Models\Setting;
 use Tiipiik\SmsSender\Models\MessageHistory;
@@ -39,21 +40,14 @@ class Sender
          
             // explode our response. return string is on first line of the data returned
             $sess = explode(":",$ret[0]);
-            //echo '<pre>';
-                //var_dump($sess);
-            //echo '</pre>';
             
-                $url = $baseUrl.'/http/sendmsg?session_id='.$sessId.'&to='.$to.'&unicode=1&text='.$text;
-                //echo '<br>URL : '.$url;
-            //die;
+            $url = $baseUrl.'/http/sendmsg?session_id='.$sessId.'&to='.$to.'&unicode=1&text='.$text;
+            
             $status = '';
             
             if ($sess[0] == 'OK') {
                 $sessId = trim($sess[1]); // remove any whitespace
-                //$url = $baseUrl.'/http/sendmsg?session_id='.$sessId.'&to='.$to.'&text='.$text;
                 $url = "$baseUrl/http/sendmsg?session_id=$sessId&to=$to&unicode=1&text=$text";
-                //echo '<br>URL : '.$url;
-                //die;
 
                 // do sendmsg call
                 $ret = file($url);
@@ -69,8 +63,6 @@ class Sender
                     // Hum, sending failed
                     $codeStatus = 2;
                     $status = $ret[0];
-                    //echo '<pre>';
-                        //var_dump($ret);
                 }
             } else {
                // Authentication failure, got to check Api Id, user credentials and co.
@@ -87,8 +79,45 @@ class Sender
                 'short_status' => (int) $codeStatus,
             ];
             MessageHistory::saveHistory($messageDatas);
-            //die('<br>Code : '.$codeStatus);
         }
+        else if ($gateway == 'twilio')
+        {  
+            $providerAccountSid = Setting::get('twilio_account_id');
+            $providerAuthToken = Setting::get('twilio_token');
+            $codeStatus = 2;
+            $status = '';
+            $text = $message;
+            $messageId = 0;
+            
+            $client = new Services_Twilio($providerAccountSid, $providerAuthToken);
+            
+            try {
+                $message = $client->account->messages->create([
+                    'From'=>$from,
+                    'To'=>$to,
+                    'Body'=>$message
+                ]);
+            
+                $codeStatus = 1;
+                $status = 'Sent';
+                $messageId = $message->sid;
+            
+            } catch (Services_Twilio_RestException $e) {
+                echo $e->getMessage();
+            }
+            
+            // Store datas in table
+            $messageDatas = [
+                'from' => $from,
+                'to' => $to,
+                'message' => $message,
+                'sess_id' => $messageId,
+                'status' => $status,
+                'short_status' => (int) $codeStatus,
+            ];
+            MessageHistory::saveHistory($messageDatas);
+        }
+        
         ($codeStatus == 1 ? true : false);
     }
     

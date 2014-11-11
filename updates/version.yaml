@@ -1,3 +1,6 @@
 1.0.1:
     - First version of SmsSender
     - create_message_histories_table.php
+1.0.2:
+    - Fix correct Path to use SmsSender Class
+    - Added Twilio (at you're own risks)

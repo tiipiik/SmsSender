@@ -3,7 +3,7 @@
 use Exception;
 use Backend\Classes\ReportWidgetBase;
 use System\Classes\ApplicationException;
-use Tiipiik\SmsSender\Classes\Sender;
+use Tiipiik\SmsSender\Classes\Sender as SmsSender;
 
 /**
  * SmsSender messages overview widget.
@@ -15,7 +15,7 @@ class MessagesOverview extends ReportWidgetBase
      * Renders the widget.
      */
     public function render()
-    {
+    {   
         try {
             $this->loadData();
         }
@@ -64,7 +64,7 @@ class MessagesOverview extends ReportWidgetBase
         
         $mList = [];
         
-        $messages = Sender::getMessages($days, $rows, $status);
+        $messages = SmsSender::getMessages($days, $rows, $status);
         
         foreach ($messages as $message)
         {
