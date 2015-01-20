@@ -35,5 +35,58 @@ return [
         'twilio_token'=>'AuthToken',
         'twilio_token_ph'=>'Your Twilio AuthToken',
         'twilio_token_comment'=>'AuthToken provided by Twilio (www.twilio.com/user/account)',
+
+        'info_name' => 'SmsSender',
+        'info_description' => 'Send SMS to your users, through various providers.',
+        'info_label' => 'SMS Sender'
+    ],
+
+    'posts' => [
+        'new' => 'New SmsSender',
+        'create' => 'Create SmsSender',
+        'edit' => 'Edit SmsSender',
+        'preview' => 'Preview SmsSender',
+        'manage' => 'Manage SmsSenders'
+    ],
+
+    'create' => [
+        'creating' => 'Creating SmsSender...',
+        'create' => 'Create',
+        'createnclose' => 'Create and Close',
+        'cancel' => 'Cancel',
+        'or' => 'or',
+        'return' => 'Return to smssender list'
+    ],
+
+    'update' => [
+        'saving' => 'Saving SmsSender...',
+        'save' => 'Save',
+        'savenclose' => 'Save and Close',
+        'cancel' => 'Cancel',
+        'or' => 'or',
+        'return' => 'Return to smssender list',
+        'deleting' => 'Deleting SmsSender...',
+        'delete_sure' => 'Do you really want to delete this smssender?'
+    ],
+
+    'model' => [
+        'id' => 'ID',
+    ],
+
+    'widget' => [
+        'title' => 'Widget title',
+        'default' => 'Messages overview',
+        'validation' => 'The Widget Title is required.',
+        'days_title' => 'Number of days to display data for',
+        'rows_title' => 'Number of rows to display',
+        'failed_title' => 'Display only failed messages',
+        'nosend' => 'No messages were send for now',
+        'from' => 'From',
+        'to' => 'To',
+        'message' => 'Message',
+        'status' => 'Status',
+        'gateway_fail' => 'Gateway authentication failure',
+        'sent' => 'Sent',
+        'failed' => 'Failed'
     ]
 ];

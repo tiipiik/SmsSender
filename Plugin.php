@@ -12,8 +12,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'SmsSender',
-            'description' => 'Send SMS to your users, through various providers.',
+            'name'        => 'tiipiik.smssender::lang.backend.info_name',
+            'description' => 'tiipiik.smssender::lang.backend.info_description',
             'author'      => 'Tiipiik',
             'icon'        => 'icon-envelope-square'
         ];
@@ -33,9 +33,9 @@ class Plugin extends PluginBase
     {
         return [
             'smssender' => [
-                'label' => 'SMS Sender',
+                'label' => 'tiipiik.smssender::lang.backend.info_label',
                 'icon' => 'icon-envelope-square',
-                'description' => 'Send SMS to your users, through various providers.',
+                'description' => 'tiipiik.smssender::lang.backend.info_description',
                 'class' => 'Tiipiik\SmsSender\Models\Setting',
                 'order' => 100
             ]

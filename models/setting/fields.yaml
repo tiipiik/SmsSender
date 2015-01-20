@@ -3,7 +3,7 @@ fields:
         label: tiipiik.smssender::lang.backend.from_label
         placeholder: tiipiik.smssender::lang.backend.from_ph
         commentAbove: tiipiik.smssender::lang.backend.from_comment
-    
+
     gateway:
         label: tiipiik.smssender::lang.backend.gateways_label
         commentAbove: tiipiik.smssender::lang.backend.gateways_comment
@@ -15,28 +15,28 @@ fields:
 
 tabs:
     fields:
-            
+
         clickatell_user_name:
             tab: tiipiik.smssender::lang.backend.clickatell_tab
             label: tiipiik.smssender::lang.backend.clickatell_username
             placeholder: tiipiik.smssender::lang.backend.clickatell_username_ph
             commentAbove: tiipiik.smssender::lang.backend.clickatell_username_comment
             span: left
-            
+
         clickatell_passwd:
             tab: tiipiik.smssender::lang.backend.clickatell_tab
             label: tiipiik.smssender::lang.backend.clickatell_passwd
             placeholder: tiipiik.smssender::lang.backend.clickatell_passwd_ph
             commentAbove: tiipiik.smssender::lang.backend.clickatell_passwd_comment
             span: right
-            
+
         clickatell_api_id:
             tab: tiipiik.smssender::lang.backend.clickatell_tab
             label: tiipiik.smssender::lang.backend.clickatell_api_id
             placeholder: tiipiik.smssender::lang.backend.clickatell_api_id_ph
             commentAbove: tiipiik.smssender::lang.backend.clickatell_api_id_comment
             span: left
-            
+
         clickatell_base_url:
             tab: tiipiik.smssender::lang.backend.clickatell_tab
             label: tiipiik.smssender::lang.backend.clickatell_api_url
@@ -44,14 +44,14 @@ tabs:
             default: http://api.clickatell.com
             commentAbove: tiipiik.smssender::lang.backend.clickatell_api_url_comment
             span: right
-            
+
         twilio_account_id:
             tab: tiipiik.smssender::lang.backend.twilio_tab
             label: tiipiik.smssender::lang.backend.twilio_account_id
             placeholder: tiipiik.smssender::lang.backend.twilio_account_id_ph
             commentAbove: tiipiik.smssender::lang.backend.twilio_account_id_comment
             span: left
-            
+
         twilio_token:
             tab: tiipiik.smssender::lang.backend.twilio_tab
             label: tiipiik.smssender::lang.backend.twilio_token

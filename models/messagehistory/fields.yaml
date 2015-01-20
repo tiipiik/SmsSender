@@ -4,5 +4,5 @@
 
 fields:
     id:
-        label: ID
+        label: tiipiik.smssender::lang.model.id
         disabled: true

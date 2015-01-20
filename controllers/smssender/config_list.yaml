@@ -9,7 +9,7 @@ list: @/plugins/tiipiik/smssender/models/smssender/columns.yaml
 modelClass: Tiipiik\SmsSender\Models\SmsSender
 
 # List Title
-title: Manage SmsSenders
+title: tiipiik.smssender::lang.posts.manage
 
 # Link URL for each record
 recordUrl: tiipiik/smssender/smssender/update/:id

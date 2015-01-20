@@ -3,7 +3,7 @@
 # ===================================
 
 # Record name
-name: SmsSender
+name: tiipiik.smssender::lang.posts.new
 
 # Model Form Field configuration
 form: @/plugins/tiipiik/smssender/models/smssender/fields.yaml
@@ -16,16 +16,16 @@ defaultRedirect: tiipiik/smssender/smssender
 
 # Create page
 create:
-    title: Create SmsSender
+    title: tiipiik.smssender::lang.posts.create
     redirect: tiipiik/smssender/smssender/update/:id
     redirectClose: tiipiik/smssender/smssender
 
 # Update page
 update:
-    title: Edit SmsSender
+    title: tiipiik.smssender::lang.posts.edit
     redirect: tiipiik/smssender/smssender
     redirectClose: tiipiik/smssender/smssender
 
 # Preview page
 preview:
-    title: Preview SmsSender
+    title: tiipiik.smssender::lang.posts.preview
