@@ -4,3 +4,4 @@
 1.0.2:
     - Fix correct Path to use SmsSender Class
     - Added Twilio (at you're own risks)
+1.0.3: Added Dutch language, thanks to @dogiedog
