@@ -9,7 +9,7 @@ Use Tiipiik.SmsSender to search/install this plugin.
 * Go to http://clickatell.com and create your account or sign in
 * Get your API credentials
 * Add your Clickatell datas on the System -> SmsSender section
-* Add at the top level of your controllers `use Tiipiik\SmsSender\Models\Setting as SmsSender;`
+* Add at the top level of your controllers `use Tiipiik\SmsSender\Classes\Sender as SmsSender;`
 * Send Sms with `SmsSender::sendMessage('phone_number_of_target', 'message·');`
 
 ### Unicode limit

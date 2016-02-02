@@ -1,5 +1,4 @@
 1.0.1:
     - First version of SmsSender
     - create_message_histories_table.php
-1.0.2:
-    - Added russian localisation, PR by @maximlit. Thanks !
+1.0.2: Added russian localisation, PR by @maximlit. Thanks !
