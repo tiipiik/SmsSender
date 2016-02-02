@@ -1,5 +1,6 @@
 <?php namespace Tiipiik\SmsSender;
 
+use App;
 use Backend;
 use System\Classes\PluginBase;
 

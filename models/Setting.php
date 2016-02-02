@@ -17,10 +17,13 @@ class Setting extends Model
         
     public $rules = [
         'from' => 'required',
-        'gateway' => 'required|in:clickatell,test',
-        'clickatell_user_name' => 'required',
-        'clickatell_passwd' => 'required',
-        'clickatell_api_id' => 'required',
-        'clickatell_base_url' => 'required',
+        'gateway' => 'required|in:clickatell,twilio',
+        
+        // Need to add required fields from selected gateway, maybe through detecting
+        //  recorded gateway (need to record that first !)
+        //'clickatell_user_name' => 'required',
+        //'clickatell_passwd' => 'required',
+        //'clickatell_api_id' => 'required',
+        //'clickatell_base_url' => 'required',
     ];
 }
