@@ -4,6 +4,7 @@ use Exception;
 use Backend\Classes\ReportWidgetBase;
 use System\Classes\ApplicationException;
 use Tiipiik\SmsSender\Classes\Sender as SmsSender;
+use Lang;
 
 /**
  * SmsSender messages overview widget.
@@ -30,26 +31,26 @@ class MessagesOverview extends ReportWidgetBase
     {
         return [
             'title' => [
-                'title'             => 'Widget title',
-                'default'           => 'Messages overview',
+                'title'             => 'tiipiik.smssender::lang.widget.title',
+                'default'           => Lang::get('tiipiik.smssender::lang.widget.defaultstr'),
                 'type'              => 'string',
                 'validationPattern' => '^.+$',
-                'validationMessage' => 'The Widget Title is required.'
+                'validationMessage' => 'tiipiik.smssender::lang.widget.validation'
             ],
             'days' => [
-                'title'             => 'Number of days to display data for',
+                'title'             => 'tiipiik.smssender::lang.widget.days_title',
                 'default'           => '1',
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$'
             ],
             'rows' => [
-                'title'             => 'Number of rows to display',
+                'title'             => 'tiipiik.smssender::lang.widget.rows_title',
                 'default'           => '10',
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$'
             ],
             'failed_only' => [
-                'title'             => 'Display only failed messages',
+                'title'             => 'tiipiik.smssender::lang.widget.failed_title',
                 'type'              => 'checkbox',
                 'default'           => '1',
             ]

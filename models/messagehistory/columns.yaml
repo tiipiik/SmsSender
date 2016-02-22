@@ -4,4 +4,4 @@
 
 columns:
     id:
-        label: ID
+        label: tiipiik.smssender::lang.model.id
