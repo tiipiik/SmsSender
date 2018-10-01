@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twilio/twilio-php.git",
-                "reference": "2ec5b2398128f8d38d23168d0c199c5679402edf"
+                "reference": "292fef46097bcc935007a117ddce9acc40a1a8c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/2ec5b2398128f8d38d23168d0c199c5679402edf",
-                "reference": "2ec5b2398128f8d38d23168d0c199c5679402edf",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/292fef46097bcc935007a117ddce9acc40a1a8c1",
+                "reference": "292fef46097bcc935007a117ddce9acc40a1a8c1",
                 "shasum": ""
             },
             "require": {
@@ -25,13 +25,13 @@
             },
             "require-dev": {
                 "mockery/mockery": ">=0.7.2",
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "4.5.*"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Services_Twilio": ""
-                }
+                "files": [
+                    "Services/Twilio.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -54,24 +54,17 @@
                 "sms",
                 "twilio"
             ],
-            "time": "2014-10-31 21:39:21"
+            "time": "2016-01-29 00:19:22"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "twilio/sdk": 20
     },
     "prefer-stable": false,
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
 }

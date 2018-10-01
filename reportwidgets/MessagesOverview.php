@@ -15,11 +15,10 @@ class MessagesOverview extends ReportWidgetBase
      * Renders the widget.
      */
     public function render()
-    {   
+    {
         try {
             $this->loadData();
-        }
-        catch (Exception $ex) {
+        } catch (Exception $ex) {
             $this->vars['error'] = $ex->getMessage();
         }
 
@@ -66,8 +65,7 @@ class MessagesOverview extends ReportWidgetBase
         
         $messages = SmsSender::getMessages($days, $rows, $status);
         
-        foreach ($messages as $message)
-        {
+        foreach ($messages as $message) {
             $mList[] = [
                 'from'=>$message->from,
                 'to'=>$message->to,
