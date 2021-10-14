@@ -1,5 +1,7 @@
 ## SMS SENDER plugin for OctoberCMS
 
+# This plugin is not up to date and will not be updated anymore. If you would like to manage it please contact me.
+
 ### Install
 Use Tiipiik.SmsSender to search/install this plugin.
 
