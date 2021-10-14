@@ -1,7 +1,6 @@
 <?php namespace Tiipiik\SmsSender\Classes;
 
-use Services_Twilio;
-#use Twilio\Rest\Client as Services_Twilio;
+use Twilio\Rest\Client as Services_Twilio;
 use Exception;
 use Tiipiik\SmsSender\Models\Setting;
 use Tiipiik\SmsSender\Models\MessageHistory;
@@ -86,24 +85,26 @@ class Sender
             $status = '';
             $text = $message;
             $messageId = 0;
-            
-            $client = new Services_Twilio($providerAccountSid, $providerAuthToken);
-            
+
             try {
-                $message = $client->account->messages->create([
-                    'From'=>$from,
-                    'To'=>$to,
-                    'Bbody'=>$message
+                $client = new Services_Twilio($providerAccountSid, $providerAuthToken);
+            } catch (ConfigurationException $e) {
+                echo $e->getMessage();
+            }
+
+            try {
+                $message = $client->account->messages->create($to, [
+                    'from'=>$from,
+                    'body'=>$message
                 ]);
-            
+
                 $codeStatus = 1;
                 $status = 'Sent';
                 $messageId = $message->sid;
-            
-            } catch (Services_Twilio_RestException $e) {
+            } catch (TwilioException $e) {
                 echo $e->getMessage();
             }
-            
+
             // Store datas in table
             $messageDatas = [
                 'from' => $from,
